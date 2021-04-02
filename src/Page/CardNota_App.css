@@ -1,0 +1,22 @@
+.card-nota-app-block{
+    background: blue;
+    display: flex;
+}
+
+.card-nota-app-block form {
+    background: gray;
+}
+
+.card-nota-app-block form section {
+    background: yellow;
+    display: grid;
+    justify-content: left;
+}
+
+.card-nota-app-block ListaCardNota {
+    background: green;
+}
+
+.card-nota-app-block form button {
+    background: hotpink;
+}

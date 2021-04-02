@@ -1,12 +1,18 @@
-import React, { LiHTMLAttributes } from 'react';
+import React from 'react';
 import CardNota from '../CardNota/CardNota';
 import './ListaCardNota.css';
 
-interface ListaCardNotaProps extends LiHTMLAttributes<HTMLLIElement> {
-    list: [{tituloNota: string, conteudoNota: string}]
+
+interface ICardNota {
+    tituloNota: string,
+    conteudoNota: string
+}  
+
+interface ListaCardNotaProps {
+    list: ICardNota[]
 }
 
-const ListaCardNota: React.FC<ListaCardNotaProps> = ({ list }) => {
+const ListaCardNota: React.FC<ListaCardNotaProps> = ({ list, ...rest }) => {
     return(
         <ul className="lista-card-nota-block">
             {list.map((nota, index) => {

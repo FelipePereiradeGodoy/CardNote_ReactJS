@@ -1,52 +1,54 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useCallback, useState } from 'react';
 import Input from '../Components/Input/Input';
 import TextArea from '../Components/TextArea/TextArea';
 import ListaCardNota from '../Components/ListaCardNota/ListaCardNota';
 import './CardNota_App.css';
 
+interface ICardNota {
+  tituloNota: string,
+  conteudoNota: string
+}
+
 
 function CardNota_App() {
     const [tituloNota, setTituloNota] = useState("");
     const [conteudoNota, setConteudoNota] = useState("");
-    const [listCardNotas, setListCardNotas] = useState([{tituloNota: "", conteudoNota: ""}]);
+    const [listCardNotas, setListCardNotas] = useState<ICardNota[]>([]);
     
+    const addCardNota = () => {
+        const newListNota = listCardNotas.slice();
+        newListNota.push({tituloNota, conteudoNota});
+        setListCardNotas(newListNota);
+    }
 
     const handleCreateCardNota = (event: FormEvent) => {
         event.preventDefault();
         
-        const newNota = {tituloNota, conteudoNota}; 
-        const newListNotas = listCardNotas;
-        
-        newListNotas.push(newNota);
-
-        setListCardNotas(newListNotas);
-    }
+        addCardNota();
+    } 
 
 
     return(
         <div className="card-nota-app-block">
             <form onSubmit={handleCreateCardNota} >
                 <section>
-                    <Input 
+                  <Input 
                       name="tituloNota" 
                       label="Titulo da Nota" 
-                      value={tituloNota}
-                      onChange={(e) => { setTituloNota(e.target.value) }}
-                    />
+                      onChange={(e) => {  setTituloNota(e.target.value) }}
+                  />
 
-                    <TextArea 
+                  <TextArea 
                       name="conteudoNota" 
-                      value={conteudoNota}
-                      onChange={(e) => { setConteudoNota(e.target.value) }}
-                    />
+                      onChange={(e) => { setConteudoNota(e.target.value) }}         
+                  />
+                    
+                  <button type="submit">Criar</button>  
                 </section>
-                
-                <ListaCardNota 
-                  list={listCardNotas} 
-                />
-                
-                <button type="submit">Criar</button>
             </form>
+            <ListaCardNota 
+              list={listCardNotas} 
+            />
         </div>
     );
 }
