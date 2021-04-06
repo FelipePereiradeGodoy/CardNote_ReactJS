@@ -1,4 +1,5 @@
 .lista-card-nota-block {
+    list-style-type: none;
     background: cornflowerblue;
     display: flex;
     align-items: center;

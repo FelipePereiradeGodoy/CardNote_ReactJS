@@ -1,0 +1,11 @@
+.textarea-block {
+    display: flex;
+    width: 65%;
+    height: 15%;
+    background: plum;
+    margin-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    padding: none;
+    border-radius: 5px;
+}
