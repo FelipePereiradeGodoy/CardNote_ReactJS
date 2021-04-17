@@ -1,9 +1,19 @@
 .lista-card-nota-block {
     list-style-type: none;
     background: cornflowerblue;
+    width: 75vw;
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
+    flex-wrap: wrap;
+    padding: none;
+    margin: 5px;
+}
+
+.lista-card-nota-block .lista-item{
+    background-color: red;
+    display: flex;
+    position: relative;
+    width: 25vw;
+    height: 20vh;
     margin: 5px;
 }

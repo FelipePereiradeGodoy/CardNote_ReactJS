@@ -14,10 +14,6 @@
     height: 100%;
 }
 
-.card-nota-app-block ListaCardNota {
-    background: green;
-}
-
 .card-nota-app-block form button {
     display: flex;
     background: fuchsia;
